@@ -1,0 +1,41 @@
+.position {
+    width: 100%;
+    font-size: 17px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: border 0.5s;
+
+}
+.position:hover {
+  border: 1px solid red;
+}
+
+.position .brand {
+    width:20%;
+    display: inline-block;
+}
+.position .model {
+    width:20%;
+    display: inline-block;
+}
+.position .year {
+    width:15%;
+    display: inline-block;
+}
+.position .capasity {
+    width:15%;
+    display: inline-block;
+}
+.position .quantity {
+    width: 8%;
+    display: inline-block;
+}
+.position .price {
+    width: 8%;
+    display: inline-block;
+}
+.position .sum {
+    width: 8%;
+    display: inline-block;
+}

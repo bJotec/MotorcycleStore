@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="/main.css/">
+    <link rel="stylesheet" href="/motorcycles.css/">
+    <link rel="stylesheet" href="/login.css/">
+
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo" ></div>
+<div th:replace="fragments.html :: menu" ></div>
+
+<div id = "content">
+    <form id="login-form" method="post" >
+
+        <input type="text" placeholder="Imię" th:field="*{registerUser.name}">    <!--  */ chce powiazać pola-->
+        <br>
+        <input type="text" placeholder="Nazwisko" th:field="*{registerUser.surname}">
+        <br>
+        <input type="text" placeholder="Login" th:field="*{registerUser.login}">
+        <br>
+        <input type="password" placeholder="Hasło" th:field="*{registerUser.password}">
+        <br>
+        <input type="password" placeholder="Powtórz hasło" th:field="*{registerUser.password2}">
+        <br>
+        <input type="text" placeholder="Mail" th:field="*{registerUser.mail}">
+        <br>
+        <input type="submit" value="Zarejestruj">
+    </form>
+
+</div>
+
+<div id = "stopka"> &copy;Bjotec 2021
+</div>
+
+
+</body>
+</html>

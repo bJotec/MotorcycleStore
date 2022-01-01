@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona glowna</title>
+    <link rel="stylesheet" href="/main.css/">
+    <link rel="stylesheet" href="/motorcycles.css/">
+    <link rel="stylesheet" href="/login.css/">
+    <link rel="stylesheet" href="/cart.css/">
+
+</head>
+<body>
+<div th:replace="fragments.html :: logo" ></div>
+<div th:replace="fragments.html :: menu" ></div>
+
+<div id = "content">
+
+    <div th:if="${cart.positions.isEmpty()}">Twój koszyk jest pusty</div>
+
+    <div class="position" th:if="${!cart.positions.isEmpty()}">
+        <div class="brand">Marka</div>
+        <div class="model">Model</div>
+        <div class="year">Rok</div>
+        <div class="capasity">Pojemność</div>
+        <div class="quantity">Ilość</div>
+        <div class="price">Cena</div>
+        <div class="sum">Suma</div>
+
+    </div>
+
+    <div th:each="position : ${cart.positions}" class="position">
+        <div th:text="${position.motorcycle.brand}" class="brand"></div>
+        <div th:text="${position.motorcycle.model}" class="model"></div>
+        <div th:text="${position.motorcycle.year}" class="year"></div>
+        <div th:text="${position.motorcycle.capasity}" class="capasity"></div>
+        <div th:text="${position.positionQuantity}" class="quantity"></div>
+        <div th:text="${position.motorcycle.price}" class="price"></div>
+        <div th:text="${position.motorcycle.price * position.positionQuantity}" class="sum"></div>
+
+    </div>
+
+    <div class="position" th:if="${!cart.positions.isEmpty()}">
+        <div class="brand"></div>
+        <div class="model"></div>
+        <div class="year"></div>
+        <div class="capasity"></div>
+        <div class="quantity"></div>
+        <div class="price">Suma:</div>
+        <div class="sum" th:text="${sum}"></div>
+    </div>
+
+    <a href="/order/confirm" th:if="${!cart.positions.isEmpty()}">Zamów</a>
+</div>
+
+
+<div id = "stopka"> &copy;Bjotec 2021  Zapraszamy do kontaktu ;) Jesteśmy do Państwa dyspozycji
+</div>
+
+
+</body>
+</html>

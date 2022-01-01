@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/main.css/">
+    <link rel="stylesheet" href="/motorcycles.css/">
+    <link rel="stylesheet" href="/orders.css/">
+    <link rel="stylesheet" href="/cart.css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo" ></div>
+<div th:replace="fragments.html :: menu" ></div>
+<div id="content">
+
+    <div th:if="${orders.isEmpty()}">BRAK ZAMÓWIEN</div>
+
+    <div class="order" th:if="${!orders.isEmpty()}">
+        <div class="id">ID</div>
+        <div class="status">STATUS</div>
+        <div class="sum">SUMA ZAMÓWIENIA</div>
+    </div>
+    <div th:each=" order :  ${orders}" class="order">
+        <div th:text="${order.id}" class="id"></div>
+        <div th:text="${order.status}" class="status"></div>
+        <div th:text="${order.calculateSum()}" class="sum"></div>
+
+        <div class="positions">
+
+            <div class="position">
+                <div class="brand">Marka</div>
+                <div class="model">Model</div>
+                <div class="year">Rok</div>
+                <div class="capasity">Pojemność</div>
+                <div class="quantity">Ilość</div>
+                <div class="price">Cena</div>
+                <div class="sum">Suma</div>
+            </div>
+
+            <div th:each="position : ${order.orderPositions}" class="position">
+                <div th:text="${position.motorcycle.brand}" class="brand"></div>
+                <div th:text="${position.motorcycle.model}" class="model"></div>
+                <div th:text="${position.motorcycle.year}" class="year"></div>
+                <div th:text="${position.motorcycle.capasity}" class="capasity"></div>
+                <div th:text="${position.positionQuantity}" class="quantity"></div>
+                <div th:text="${position.motorcycle.price}" class="price"></div>
+                <div th:text="${position.motorcycle.price * position.positionQuantity}" class="sum"></div>
+            </div>
+
+
+        </div>
+    </div>
+<div id = "stopka"> &copy;Bjotec 2021
+</div>
+
+
+</body>
+</html>

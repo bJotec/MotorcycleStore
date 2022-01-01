@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona glowna</title>
+    <link rel="stylesheet" href="/main.css/">
+    <link rel="stylesheet" href="/motorcycles.css/">
+    <link rel="stylesheet" href="/login.css/">
+
+</head>
+<body>
+<div th:replace="fragments.html :: logo" ></div>
+<div th:replace="fragments.html :: menu" ></div>
+
+<div id = "content">
+
+    <div class="motorcycle" th:each="motorcycle : ${motorcycles}">
+        <div th:text="${motorcycle.brand}" class="brand"></div>
+        <div th:text="${motorcycle.model}" class="model"></div>
+        <div th:text="'Rok produkcji ' + ${motorcycle.year}" class="year"></div>
+        <div th:text="'Pojemność ' + ${motorcycle.capasity}" class="capasity"></div>
+        <div th:text="'Ilosc dostępna: ' + ${motorcycle.quantity}" class="quantity"></div>
+        <a th:if="${logged == true}" th:href="@{/cart/add/{vin}(vin=${motorcycle.vin})}" class="cart-add">Dodaj do koszyka</a>
+
+    </div>
+</div>
+
+
+    <div id = "stopka"> &copy;Bjotec 2021  Zapraszamy do kontaktu ;) Jesteśmy do Państwa dyspozycji
+    </div>
+
+
+</body>
+</html>
