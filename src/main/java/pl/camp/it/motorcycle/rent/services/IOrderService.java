@@ -10,4 +10,6 @@ public interface IOrderService {
     void confirmOrder(Address address);
     List<Order> getOrdersForCurrentUsers();
 
+    void returnOrder ();
+
 }

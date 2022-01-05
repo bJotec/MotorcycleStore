@@ -7,5 +7,9 @@ import java.util.List;
 public interface IOrderDAO {
 
     void addOrder(Order order);
+
     List<Order> getOrdersByUsersLogin(String login);
+
+    void returnOrders(int id);
 }
+

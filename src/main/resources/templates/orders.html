@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contact</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="/main.css/">
     <link rel="stylesheet" href="/motorcycles.css/">
     <link rel="stylesheet" href="/orders.css/">
@@ -47,6 +47,10 @@
                 <div th:text="${position.positionQuantity}" class="quantity"></div>
                 <div th:text="${position.motorcycle.price}" class="price"></div>
                 <div th:text="${position.motorcycle.price * position.positionQuantity}" class="sum"></div>
+            </div>
+
+            <div class="position">
+                <a href="/order/return">Zwróć wszystkie zamówienia</a>
             </div>
 
 

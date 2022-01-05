@@ -54,4 +54,13 @@ public class OrderController {
         model.addAttribute("orders", this.orderService.getOrdersForCurrentUsers());
         return "orders";
     }
+
+    @RequestMapping(value = "/return", method = RequestMethod.GET)
+    public String returnOrder(Model model) {
+        model.addAttribute("logged", sessionObject.isLogged());
+/*        model.addAttribute("orders", this.orderService.getOrdersForCurrentUsers());*/
+
+        this.orderService.returnOrder();
+        return "redirect:/order/all";
+    }
 }

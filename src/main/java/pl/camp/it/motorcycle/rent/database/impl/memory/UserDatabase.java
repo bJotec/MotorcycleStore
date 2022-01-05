@@ -1,7 +1,6 @@
 package pl.camp.it.motorcycle.rent.database.impl.memory;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.stereotype.Repository;
 import pl.camp.it.motorcycle.rent.database.IUserDAO;
 import pl.camp.it.motorcycle.rent.model.User;
 

@@ -3,6 +3,7 @@ package pl.camp.it.motorcycle.rent.database.impl.memory;
 import org.springframework.stereotype.Repository;
 import pl.camp.it.motorcycle.rent.database.IOrderDAO;
 import pl.camp.it.motorcycle.rent.model.Order;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,10 @@ public class OrderDatabase implements IOrderDAO {
             }
 
             return result;
+    }
+
+    @Override
+    public void returnOrders(int id) {
+        throw new NotImplementedException();
     }
 }

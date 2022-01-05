@@ -10,7 +10,9 @@ import pl.camp.it.motorcycle.rent.model.Address;
 import pl.camp.it.motorcycle.rent.model.Order;
 import pl.camp.it.motorcycle.rent.model.OrderPosition;
 import pl.camp.it.motorcycle.rent.model.User;
+import pl.camp.it.motorcycle.rent.sesion.SessionObject;
 
+import javax.annotation.Resource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,9 @@ public class OrderDAOImpl implements IOrderDAO {
 
     @Autowired
     IUserDAO userDAO;
+
+    @Resource
+    SessionObject sessionObject;
 
     @Override
     public void addOrder(Order order) {
@@ -99,5 +104,21 @@ public class OrderDAOImpl implements IOrderDAO {
             throwables.printStackTrace();
         }
         return listOrders;
+    }
+
+    @Override
+    public void returnOrders(int id) {
+        try {
+
+            String sql = "DELETE FROM torder WHERE user_id = ?";
+
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+            preparedStatement.setInt(1, this.sessionObject.getUser().getId());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

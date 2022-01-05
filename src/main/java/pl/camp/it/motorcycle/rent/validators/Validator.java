@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator {
-    public static void validateLogin(String login) { 
+    public static void validateLogin(String login) {
             if(!login.matches(".{3}.*")) {
                 throw new ValidationException("Login jest za krótki");
             }
