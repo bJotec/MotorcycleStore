@@ -74,7 +74,7 @@ public class OrderPositionDAOImpl implements IOrderPositionDAO {
         return listOrderPositions;
     }
 
-    @Override
+/*    @Override
     public void returnOrderPositionByUserId() {
 
 
@@ -91,7 +91,7 @@ public class OrderPositionDAOImpl implements IOrderPositionDAO {
     throwables.printStackTrace();
 }
 
-    }
+    }*/
 
 }
 

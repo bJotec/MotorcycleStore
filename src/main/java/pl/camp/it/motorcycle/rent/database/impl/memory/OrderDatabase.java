@@ -30,7 +30,7 @@ public class OrderDatabase implements IOrderDAO {
     }
 
     @Override
-    public void returnOrders(int id) {
+    public void returnOrderById(int id) {
         throw new NotImplementedException();
     }
 }

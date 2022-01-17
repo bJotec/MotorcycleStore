@@ -10,6 +10,6 @@ public interface IOrderDAO {
 
     List<Order> getOrdersByUsersLogin(String login);
 
-    void returnOrders(int id);
+     void returnOrderById(int id);
 }
 

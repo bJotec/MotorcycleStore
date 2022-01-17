@@ -1,7 +1,6 @@
 package pl.camp.it.motorcycle.rent.database.impl.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import pl.camp.it.motorcycle.rent.database.IAddressDAO;
 import pl.camp.it.motorcycle.rent.database.IOrderDAO;
 import pl.camp.it.motorcycle.rent.database.IOrderPositionDAO;
@@ -107,8 +106,13 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
+    public void returnOrderById(int order) {
+
+    }
+
+   /*   @Override
     public void returnOrders(int id) {
-        try {
+      try {
 
             String sql = "DELETE FROM torder WHERE user_id = ?";
 
@@ -123,6 +127,6 @@ public class OrderDAOImpl implements IOrderDAO {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
-    }
+        }*/
+
 }

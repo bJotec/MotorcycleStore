@@ -58,7 +58,21 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public void returnOrders(int id) {
+    public void returnOrderById(int id) {
 
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(id);
+            tx.commit();
+        } catch (Exception e) {
+            if ( tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
     }
+
 }

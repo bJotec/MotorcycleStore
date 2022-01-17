@@ -24,9 +24,6 @@ public class OrderService implements IOrderService {
     @Autowired
     IOrderDAO orderDatabase;
 
-    @Autowired
-    IOrderPositionDAO orderPositionDAO;
-
     @Resource
     SessionObject sessionObject;
 
@@ -74,13 +71,13 @@ public class OrderService implements IOrderService {
     @Override
     public void returnOrder() {
 
-        this.orderDatabase.returnOrders(this.sessionObject.getUser().getId());
+        this.orderDatabase.returnOrderById(this.sessionObject.getOrder().getId());
     }
 
-    @Override
+   /* @Override
     public void returnOrderPositionByUserId() {
 
-        //this.orderPositionDAO.returnOrderPositionByUserId();
-    }
+        this.orderPositionDAO.returnOrderPositionByUserId();
+    }*/
 
 }
