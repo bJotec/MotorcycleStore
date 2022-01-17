@@ -8,7 +8,7 @@ import pl.camp.it.motorcycle.rent.model.User;
 import java.sql.*;
 import java.util.Optional;
 
-@Repository
+
 public class UserDAOImpl implements IUserDAO {
 
     @Autowired

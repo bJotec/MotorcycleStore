@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+
 public class OrderDAOImpl implements IOrderDAO {
 
     @Autowired
@@ -95,7 +95,7 @@ public class OrderDAOImpl implements IOrderDAO {
                 }
 
                 List<OrderPosition> orderPositions = this.orderPositionDAO.getOrderPositionsByOrderId(order.getId());
-                order.setOrderPositions(orderPositions);
+               // order.setOrderPositions(orderPositions);                                                          //TODO jesli na JDBC odpalam to odkomentować
 
                 listOrders.add(order);
             }
@@ -115,7 +115,11 @@ public class OrderDAOImpl implements IOrderDAO {
             PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
             preparedStatement.setInt(1, this.sessionObject.getUser().getId());
 
+
             preparedStatement.executeUpdate();
+
+
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -8,7 +8,7 @@ import pl.camp.it.motorcycle.rent.model.Address;
 import java.sql.*;
 import java.util.Optional;
 
-@Repository
+
 public class AddressDAOImpl implements IAddressDAO {
 
     @Autowired

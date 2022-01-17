@@ -1,8 +1,14 @@
 package pl.camp.it.motorcycle.rent.model;
 
+import javax.persistence.*;
+
+@Entity(name= "torderposition")
 public class OrderPosition {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne(fetch = FetchType.EAGER)
     private Motorcycle motorcycle;
     private int positionQuantity;
 

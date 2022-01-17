@@ -11,5 +11,6 @@ public interface IOrderService {
     List<Order> getOrdersForCurrentUsers();
 
     void returnOrder ();
+    void returnOrderPositionByUserId();
 
 }

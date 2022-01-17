@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.camp.it.motorcycle.rent.database.IMotorcycleDAO;
 import pl.camp.it.motorcycle.rent.database.IOrderDAO;
+import pl.camp.it.motorcycle.rent.database.IOrderPositionDAO;
 import pl.camp.it.motorcycle.rent.model.*;
 import pl.camp.it.motorcycle.rent.services.IOrderService;
 import pl.camp.it.motorcycle.rent.sesion.SessionObject;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +23,9 @@ public class OrderService implements IOrderService {
 
     @Autowired
     IOrderDAO orderDatabase;
+
+    @Autowired
+    IOrderPositionDAO orderPositionDAO;
 
     @Resource
     SessionObject sessionObject;
@@ -43,7 +48,8 @@ public class OrderService implements IOrderService {
 
         Order order = new Order();
         /*order.setId(new Random().nextInt(1000000));*/
-        order.setOrderPositions(orderPositions);
+
+        order.setOrderPositions(new HashSet<>(orderPositions)); // zmiana listy na zbiór
         order.setAddress(address);
         order.setUser(this.sessionObject.getUser());
         order.setStatus(Order.Status.NEW);
@@ -69,6 +75,12 @@ public class OrderService implements IOrderService {
     public void returnOrder() {
 
         this.orderDatabase.returnOrders(this.sessionObject.getUser().getId());
+    }
+
+    @Override
+    public void returnOrderPositionByUserId() {
+
+        //this.orderPositionDAO.returnOrderPositionByUserId();
     }
 
 }

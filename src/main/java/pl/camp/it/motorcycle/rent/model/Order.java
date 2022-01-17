@@ -1,15 +1,24 @@
 package pl.camp.it.motorcycle.rent.model;
 
+import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
+@Entity(name= "torder")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private List<OrderPosition> orderPositions ;
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<OrderPosition> orderPositions ;
+    @OneToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Address address;
+    @ManyToOne (fetch = FetchType.EAGER)
     private User user;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    public Order(int id, List<OrderPosition> orderPositions, Address address, User user, Status status) {
+    public Order(int id, Set<OrderPosition> orderPositions, Address address, User user, Status status) {
         this.id = id;
         this.orderPositions = orderPositions;
         this.address = address;
@@ -28,11 +37,11 @@ public class Order {
         return Math.round(sum*100)/100.0;
     }
 
-    public List<OrderPosition> getOrderPositions() {
+    public Set<OrderPosition> getOrderPositions() {
         return orderPositions;
     }
 
-    public void setOrderPositions(List<OrderPosition> orderPositions) {
+    public void setOrderPositions(Set<OrderPosition> orderPositions) {
         this.orderPositions = orderPositions;
     }
 

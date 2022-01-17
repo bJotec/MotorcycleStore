@@ -73,4 +73,25 @@ public class OrderPositionDAOImpl implements IOrderPositionDAO {
         }
         return listOrderPositions;
     }
+
+    @Override
+    public void returnOrderPositionByUserId() {
+
+
+        try {
+
+            String sql =  "DELETE FROM torderposition WHERE NOT EXISTS ( SELECT NULL FROM torder f WHERE f.id = order_id )";
+
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+
+        preparedStatement.executeUpdate();
+
+
+    } catch (SQLException throwables) {
+    throwables.printStackTrace();
 }
+
+    }
+
+}
+
