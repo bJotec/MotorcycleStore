@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.camp.it.motorcycle.rent.database.IMotorcycleDAO;
 import pl.camp.it.motorcycle.rent.database.IOrderDAO;
-import pl.camp.it.motorcycle.rent.database.IOrderPositionDAO;
 import pl.camp.it.motorcycle.rent.model.*;
 import pl.camp.it.motorcycle.rent.services.IOrderService;
 import pl.camp.it.motorcycle.rent.sesion.SessionObject;
@@ -71,9 +70,16 @@ public class OrderService implements IOrderService {
     @Override
     public void returnOrder() {
 
-        this.orderDatabase.returnOrderById(this.sessionObject.getOrder().getId());
+
+        this.orderDatabase.returnOrderById(this.sessionObject.getOrder());
     }
 
+    @Override
+    public Optional<Order> getOrdersById() {
+
+        return this.orderDatabase.getOrdersById(this.sessionObject.getOrder().getId());
+
+    }
    /* @Override
     public void returnOrderPositionByUserId() {
 

@@ -58,11 +58,11 @@ public class OrderController {
     @RequestMapping(value = "/return", method = RequestMethod.GET)
     public String returnOrder(Model model) {
         model.addAttribute("logged", sessionObject.isLogged());
-        model.addAttribute("orders", this.orderService.getOrdersForCurrentUsers());
+        model.addAttribute("orders", this.orderService.getOrdersById());
 
         this.orderService.returnOrder();
 
-        /*this.orderService.returnOrderPositionByUserId();*/
+
 
         return "redirect:/order/all";
     }

@@ -1,7 +1,6 @@
 package pl.camp.it.motorcycle.rent.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name= "torder")

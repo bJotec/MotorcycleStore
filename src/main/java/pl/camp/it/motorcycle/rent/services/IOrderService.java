@@ -4,6 +4,7 @@ import pl.camp.it.motorcycle.rent.model.Address;
 import pl.camp.it.motorcycle.rent.model.Order;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IOrderService {
 
@@ -11,6 +12,8 @@ public interface IOrderService {
     List<Order> getOrdersForCurrentUsers();
 
     void returnOrder ();
+
+    Optional<Order> getOrdersById();
   /*  void returnOrderPositionByUserId();*/
 
 }

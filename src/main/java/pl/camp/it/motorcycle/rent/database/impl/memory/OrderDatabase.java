@@ -7,6 +7,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class OrderDatabase implements IOrderDAO {
    private final  List<Order> orders = new ArrayList<>();
@@ -30,7 +31,12 @@ public class OrderDatabase implements IOrderDAO {
     }
 
     @Override
-    public void returnOrderById(int id) {
+    public void returnOrderById(Order id) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public Optional<Order> getOrdersById(int id) {
         throw new NotImplementedException();
     }
 }

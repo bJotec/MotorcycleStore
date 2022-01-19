@@ -11,6 +11,7 @@ import pl.camp.it.motorcycle.rent.database.IUserDAO;
 import pl.camp.it.motorcycle.rent.model.Order;
 import pl.camp.it.motorcycle.rent.model.User;
 
+import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -58,13 +59,13 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public void returnOrderById(int id) {
+    public void returnOrderById(Order order) {
 
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.delete(id);
+            session.delete(order);
             tx.commit();
         } catch (Exception e) {
             if ( tx != null) {
@@ -75,4 +76,24 @@ public class OrderDAOImpl implements IOrderDAO {
         }
     }
 
+    @Override
+    public Optional<Order> getOrdersById(int id) {
+    /*    Optional<Order> orderBox = this.orderDAO.getUserByLogin(login);
+        if (!userBox.isPresent()) {
+            return new ArrayList<>();
+        }
+*/
+        Session session = this.sessionFactory.openSession();
+        Query<Order> query = session.createQuery("FROM pl.camp.it.motorcycle.rent.model.Order WHERE id = :id");
+        query.setParameter("id" , id );
+        try {
+            Order orderById = query.getSingleResult();
+            session.close();
+            return Optional.of(orderById);
+        } catch (NoResultException e) {
+            session.close();
+            return Optional.empty();
+        }
+
+    }
 }

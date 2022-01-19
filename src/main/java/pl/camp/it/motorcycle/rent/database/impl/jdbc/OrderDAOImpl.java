@@ -10,6 +10,7 @@ import pl.camp.it.motorcycle.rent.model.Order;
 import pl.camp.it.motorcycle.rent.model.OrderPosition;
 import pl.camp.it.motorcycle.rent.model.User;
 import pl.camp.it.motorcycle.rent.sesion.SessionObject;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.annotation.Resource;
 import java.sql.*;
@@ -106,8 +107,13 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public void returnOrderById(int order) {
+    public void returnOrderById(Order order) {
 
+    }
+
+    @Override
+    public Optional<Order> getOrdersById(int id) {
+        throw new NotImplementedException();
     }
 
    /*   @Override
