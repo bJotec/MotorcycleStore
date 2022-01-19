@@ -60,9 +60,7 @@ public class OrderController {
         model.addAttribute("logged", sessionObject.isLogged());
         model.addAttribute("orders", this.orderService.getOrdersById());
 
-        this.orderService.returnOrder();
-
-
+        this.orderService.returnOrder(this.orderService.getOrdersById());
 
         return "redirect:/order/all";
     }
