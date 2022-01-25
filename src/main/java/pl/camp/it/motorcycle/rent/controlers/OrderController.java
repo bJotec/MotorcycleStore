@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.camp.it.motorcycle.rent.excepions.ValidationException;
@@ -55,12 +56,13 @@ public class OrderController {
         return "orders";
     }
 
-    @RequestMapping(value = "/return", method = RequestMethod.GET)
-    public String returnOrder(Model model) {
-        model.addAttribute("logged", sessionObject.isLogged());
-        model.addAttribute("orders", this.orderService.getOrdersById());
+    @RequestMapping(value = "/return/{id}", method = RequestMethod.GET)
+    public String returnOrder(@PathVariable int id/*, Model model*/) {
+        /*model.addAttribute("logged", sessionObject.isLogged());*/
+       /* model.addAttribute("orders", this.orderService.getOrdersForCurrentUsers());*/
+      /*  model.addAttribute("orders", this.orderService.getOrdersById());*/
 
-        this.orderService.returnOrder(this.orderService.getOrdersById());
+        this.orderService.returnOrder(id);
 
         return "redirect:/order/all";
     }

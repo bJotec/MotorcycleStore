@@ -13,6 +13,6 @@ public interface IOrderDAO {
 
      void returnOrderById(Order order);
 
-    Optional<Order> getOrdersById(int id);
+    Optional<Order> getOrdersById(Order order);
 }
 

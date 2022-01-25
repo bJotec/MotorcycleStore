@@ -68,16 +68,16 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public void returnOrder(Optional<Order> ordersById) {
+    public void returnOrder(int id) {
 
 
-        this.orderDatabase.returnOrderById(this.sessionObject.getOrder());
+        this.orderDatabase.returnOrderById(this.orderDatabase.getOrdersById());  //TODO to nie działa chyba
     }
 
     @Override
     public Optional<Order> getOrdersById() {
 
-        return this.orderDatabase.getOrdersById(this.sessionObject.getOrder().getId());
+        return this.orderDatabase.getOrdersById(this.sessionObject.getOrder());
 
     }
    /* @Override

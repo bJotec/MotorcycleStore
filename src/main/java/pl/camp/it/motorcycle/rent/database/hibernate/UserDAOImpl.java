@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import pl.camp.it.motorcycle.rent.database.IUserDAO;
 import pl.camp.it.motorcycle.rent.model.User;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.NoResultException;
 import java.util.Optional;
 

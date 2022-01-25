@@ -11,7 +11,7 @@ public interface IOrderService {
     void confirmOrder(Address address);
     List<Order> getOrdersForCurrentUsers();
 
-    void returnOrder(Optional<Order> ordersById);
+    void returnOrder(int id);
 
     Optional<Order> getOrdersById();
   /*  void returnOrderPositionByUserId();*/

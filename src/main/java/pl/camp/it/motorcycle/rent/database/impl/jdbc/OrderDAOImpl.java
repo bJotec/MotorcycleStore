@@ -112,7 +112,7 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public Optional<Order> getOrdersById(int id) {
+    public Optional<Order> getOrdersById(Order order) {
         throw new NotImplementedException();
     }
 

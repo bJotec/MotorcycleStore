@@ -51,7 +51,8 @@
 
             <div class="position">
                 <div class="id">Zwróć zamówienie nr.</div>
-                <a href="/order/return" th:text="${order.id}" class="id"></a>
+                <a th:href="@{/order/return/{id}(id=${order.id})}" th:text="${order.id}" class="id">Zwróć</a>
+
             </div>
 
 

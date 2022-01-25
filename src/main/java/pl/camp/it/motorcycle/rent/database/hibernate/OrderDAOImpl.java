@@ -77,15 +77,11 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public Optional<Order> getOrdersById(int id) {
-    /*    Optional<Order> orderBox = this.orderDAO.getUserByLogin(login);
-        if (!userBox.isPresent()) {
-            return new ArrayList<>();
-        }
-*/
+    public Optional<Order> getOrdersById(Order order) {
+
         Session session = this.sessionFactory.openSession();
         Query<Order> query = session.createQuery("FROM pl.camp.it.motorcycle.rent.model.Order WHERE id = :id");
-        query.setParameter("id" , id );
+        query.setParameter("id" , order );
         try {
             Order orderById = query.getSingleResult();
             session.close();
