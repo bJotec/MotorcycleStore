@@ -77,11 +77,11 @@ public class OrderDAOImpl implements IOrderDAO {
     }
 
     @Override
-    public Optional<Order> getOrdersById(Order order) {
+    public Optional<Order> getOrdersById(int id) {
 
         Session session = this.sessionFactory.openSession();
         Query<Order> query = session.createQuery("FROM pl.camp.it.motorcycle.rent.model.Order WHERE id = :id");
-        query.setParameter("id" , order );
+        query.setParameter("id" , id );
         try {
             Order orderById = query.getSingleResult();
             session.close();
@@ -91,5 +91,23 @@ public class OrderDAOImpl implements IOrderDAO {
             return Optional.empty();
         }
 
+    }
+
+    @Override
+    public void addOrderWhichRemove(Order order) {
+
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.saveOrUpdate(order);
+            tx.commit();
+        } catch (Exception e) {
+            if ( tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
     }
 }

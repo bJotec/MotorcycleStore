@@ -36,7 +36,12 @@ public class OrderDatabase implements IOrderDAO {
     }
 
     @Override
-    public Optional<Order> getOrdersById(Order order) {
+    public Optional<Order> getOrdersById(int id) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public void addOrderWhichRemove(Order order) {
         throw new NotImplementedException();
     }
 }

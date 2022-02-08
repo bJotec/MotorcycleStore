@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface IUserDAO {
     Optional<User> getUserByLogin (String login);
     void addUser (User user);
+    void removeUser(User user);
+
 }

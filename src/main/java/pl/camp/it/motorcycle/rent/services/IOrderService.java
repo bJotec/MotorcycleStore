@@ -13,7 +13,4 @@ public interface IOrderService {
 
     void returnOrder(int id);
 
-    Optional<Order> getOrdersById();
-  /*  void returnOrderPositionByUserId();*/
-
 }

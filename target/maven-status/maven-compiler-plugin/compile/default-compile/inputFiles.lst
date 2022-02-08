@@ -1,5 +1,6 @@
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\impl\memory\MotorcycleDatabase.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\impl\memory\OrderDatabase.java
+D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\hibernate\MotorcycleDAOImpl.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\App.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\controlers\OrderController.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\impl\jdbc\AddressDAOImpl.java
@@ -7,6 +8,7 @@ D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\doTestowW
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\Motorcycle.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\services\ICartService.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\impl\memory\UserDatabase.java
+D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\hibernate\OrderDAOImpl.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\Cart.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\services\impl\OrderService.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\Address.java
@@ -21,6 +23,7 @@ D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\impl\jdbc\MotorcycleDAOImpl.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\services\IMotorcycleService.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\validators\AddressValidator.java
+D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\database\hibernate\UserDAOImpl.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\OrderPosition.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\Order.java
 D:\java bootcamp\MorcycleRent\src\main\java\pl\camp\it\motorcycle\rent\model\view\RegisterUser.java

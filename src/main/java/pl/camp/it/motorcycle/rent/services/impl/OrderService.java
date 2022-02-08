@@ -52,7 +52,7 @@ public class OrderService implements IOrderService {
         this.orderDatabase.addOrder(order);
 
         for (OrderPosition orderPosition : orderPositions) {
-            String vin = orderPosition.getMotorcycle().getVin();
+
             Optional<Motorcycle> motorcyclebox = this.motorcycleDatabase.getMotorcycleByVin(orderPosition.getMotorcycle().getVin());
             Motorcycle motorcycle = motorcyclebox.get();
             motorcycle.setQuantity(motorcycle.getQuantity()-orderPosition.getPositionQuantity());
@@ -70,20 +70,24 @@ public class OrderService implements IOrderService {
     @Override
     public void returnOrder(int id) {
 
+        Optional<Order> order = this.orderDatabase.getOrdersById(id);
 
-        this.orderDatabase.returnOrderById(this.orderDatabase.getOrdersById());  //TODO to nie działa chyba
+        if (order.isPresent()) {
+
+            this.orderDatabase.returnOrderById(order.get());
+
+            for (OrderPosition orderPosition : order.get().getOrderPositions()) {
+
+                Optional<Motorcycle> motorcyclebox = this.motorcycleDatabase.getMotorcycleByVin(orderPosition.getMotorcycle().getVin());
+                Motorcycle motorcycle = motorcyclebox.get();
+                motorcycle.setQuantity(motorcycle.getQuantity()+orderPosition.getPositionQuantity());
+                this.motorcycleDatabase.updateMotorcycle(motorcycle);
+            }
+
+
+            /*this.orderDatabase.addOrderWhichRemove(order.get());*/
+        }
     }
 
-    @Override
-    public Optional<Order> getOrdersById() {
-
-        return this.orderDatabase.getOrdersById(this.sessionObject.getOrder());
-
-    }
-   /* @Override
-    public void returnOrderPositionByUserId() {
-
-        this.orderPositionDAO.returnOrderPositionByUserId();
-    }*/
 
 }

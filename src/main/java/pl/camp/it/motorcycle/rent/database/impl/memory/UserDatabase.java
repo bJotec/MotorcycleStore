@@ -3,6 +3,7 @@ package pl.camp.it.motorcycle.rent.database.impl.memory;
 import org.apache.commons.codec.digest.DigestUtils;
 import pl.camp.it.motorcycle.rent.database.IUserDAO;
 import pl.camp.it.motorcycle.rent.model.User;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +31,10 @@ public class UserDatabase implements IUserDAO {
     @Override
     public void addUser (User user){
         this.users.add(user);
+    }
+
+    @Override
+    public void removeUser(User user) {
+        throw new NotImplementedException();
     }
 }

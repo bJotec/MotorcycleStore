@@ -13,6 +13,8 @@ public interface IOrderDAO {
 
      void returnOrderById(Order order);
 
-    Optional<Order> getOrdersById(Order order);
+    Optional<Order> getOrdersById(int id);
+
+    void addOrderWhichRemove(Order order);
 }
 

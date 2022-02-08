@@ -1,9 +1,6 @@
 package pl.camp.it.motorcycle.rent.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name= "tmotorcycle")
 public class Motorcycle {
@@ -16,6 +13,7 @@ public class Motorcycle {
     private int capasity;
     private double price;
     private String vin;
+
     private int quantity;
 
     public Motorcycle(int id, String brand, String model, int year, int capasity, double price, String vin, int quantity) {
